@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+* {
+  font-family: "Baloo 2", sans-serif;
+}
+
+/* loginForm file */
+.inputField {
+  @apply bg-[#F3F3F3] px-3 py-2 rounded placeholder:text-xs placeholder:font-medium placeholder:text-[#9F9F9F];
+}
