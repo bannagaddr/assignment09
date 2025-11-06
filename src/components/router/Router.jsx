@@ -1,9 +1,10 @@
 import React from "react";
 import { createBrowserRouter } from "react-router";
 import Layout from "../layout/Layout";
-import Home from "../pages/Home";
-import SignIn from "../pages/loginForm/SignIn";
-import SignUp from "../pages/loginForm/SignUp";
+import Home from "../home/Home";
+import SignIn from "../pages/loginform/SignIn";
+import SignUp from "../pages/loginform/SignUp";
+import ToyDetails from "../home/toy/ToyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/toy-details/:id",
+        element: <ToyDetails></ToyDetails>,
       },
       {
         path: "/signin",

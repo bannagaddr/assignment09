@@ -1,0 +1,74 @@
+[
+  {
+    "toyId": 1,
+    "toyName": "Lego Classic Bricks",
+    "sellerName": "Toys R Us Local",
+    "sellerEmail": "contact@toysruslocal.com",
+    "price": 49.99,
+    "rating": 4.7,
+    "availableQuantity": 75,
+    "description": "A colorful collection of Lego bricks that inspires creativity, problem-solving, and constructive thinking.",
+    "pictureURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8mEyxNKhsihbvECIAvVNK0QOrogLKL8gXnA&s",
+    "subCategory": "Building Blocks"
+  },
+  {
+    "toyId": 2,
+    "toyName": "Wooden Animal Puzzle",
+    "sellerName": "Smart Kids Store",
+    "sellerEmail": "support@smartkids.com",
+    "price": 19.99,
+    "rating": 4.6,
+    "availableQuantity": 110,
+    "description": "Eco-friendly wooden puzzle that helps children learn animal names, shapes, and hand-eye coordination.",
+    "pictureURL": "https://shop.nspcc.org.uk/cdn/shop/products/29951-colourful-creatures-wooden-puzzle_lifestyle_800x.jpg?v=1676480601",
+    "subCategory": "Educational Toys"
+  },
+  {
+    "toyId": 3,
+    "toyName": "Soft Teddy Bear",
+    "sellerName": "Happy Hearts Toys",
+    "sellerEmail": "hello@happyhearts.com",
+    "price": 25.5,
+    "rating": 4.9,
+    "availableQuantity": 60,
+    "description": "A soft, cuddly teddy bear made with hypoallergenic materials, safe for kids of all ages.",
+    "pictureURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5W5ZymRu9lxeli7sRX5wjN49YndQKu69SBw&s",
+    "subCategory": "Stuffed Toys"
+  },
+  {
+    "toyId": 4,
+    "toyName": "Colorful Building Blocks Set",
+    "sellerName": "Creative Minds Shop",
+    "sellerEmail": "contact@creativeminds.com",
+    "price": 32.0,
+    "rating": 4.5,
+    "availableQuantity": 85,
+    "description": "Child-safe plastic blocks that help develop motor skills, shape recognition, and spatial awareness.",
+    "pictureURL": "https://img.drz.lazcdn.com/static/bd/p/cc6a39ca26a328b5cbd2715f10b881b7.jpg_720x720q80.jpg_.webp",
+    "subCategory": "STEM Toys"
+  },
+  {
+    "toyId": 5,
+    "toyName": "Kids Musical Keyboard",
+    "sellerName": "Little Musicians",
+    "sellerEmail": "music@littlemusicians.com",
+    "price": 39.99,
+    "rating": 4.4,
+    "availableQuantity": 45,
+    "description": "A beginner-friendly keyboard that introduces children to sounds, rhythm, and music learning.",
+    "pictureURL": "https://www.costway.co.uk/media/catalog/product/cache/c4db9a9c74edf330d39d62982732ede8/t/TM10096PI/Kids_Piano_Keyboard_Pink-1.jpg",
+    "subCategory": "Musical Toys"
+  },
+  {
+    "toyId": 6,
+    "toyName": "Play-Dough Activity Kit",
+    "sellerName": "Creative Craft World",
+    "sellerEmail": "sales@craftworld.com",
+    "price": 21.5,
+    "rating": 4.6,
+    "availableQuantity": 95,
+    "description": "Non-toxic play-dough set that encourages imaginative play, color recognition, and fine motor skills.",
+    "pictureURL": "https://c.shld.net/rpx/i/s/i/spin/10030910/prod_19925848712?hei=450&wid=450",
+    "subCategory": "Art & Craft"
+  }
+]

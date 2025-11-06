@@ -15,6 +15,7 @@ const googleProvider = new GoogleAuthProvider();
 const SignIn = () => {
   const [user, setUser] = useState(null);
   console.log(user);
+
   const signinSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email?.value;
@@ -93,7 +94,6 @@ const SignIn = () => {
             <div className="h-0.5 flex-1 bg-linear-to-r from-[#9e000017] to-[#ffffff00]"></div>
           </div>
 
-          {/* google sign */}
           <button
             onClick={handleGoogleSignIn}
             className="btn bg-white text-black border-[#e5e5e5] w-full"
@@ -128,6 +128,7 @@ const SignIn = () => {
             SignIn with Google
           </button>
         </div>
+
         <div className="flex justify-center">
           <p className="text-xs">
             <span className="text-[#706F6F] font-medium">

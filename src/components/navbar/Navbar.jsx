@@ -1,13 +1,32 @@
-import React from "react";
+import React, { use } from "react";
 import "../../index.css";
 import { NavLink } from "react-router";
 import logo from "/car-toy.png";
 import defaultUserIcon from "../../assets/default-user.png";
 import UseLink from "../navlink/UseLink";
+import { AuthContext } from "../context/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user } = use(AuthContext);
+
+  // signout function
+  const handleSignOut = () => {
+    signOut(auth)
+      .then((result) => {
+        toast.success("SignOut Successful!");
+        console.log(result);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.log(error);
+      });
+  };
+
   return (
-    <div className="navbar bg-[#9e000017] px-10">
+    <div className="navbar bg-[#9e000017] px-10 border-b border-b-[#9e000017]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -53,14 +72,29 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end ">
-        <NavLink to={"/signin"}>
+      <div className="navbar-end space-x-3">
+        <div>
           <img
             src={defaultUserIcon}
             alt=""
             className="w-10 ring ring-[#F2511D] rounded-full p-1"
           />
-        </NavLink>
+        </div>
+
+        {user ? (
+          <NavLink>
+            <button
+              onClick={handleSignOut}
+              className="btn bg-[#F2511D] text-white"
+            >
+              SignOut
+            </button>
+          </NavLink>
+        ) : (
+          <NavLink to={"/signin"}>
+            <button className="btn bg-[#F2511D] text-white">SignIn</button>
+          </NavLink>
+        )}
       </div>
     </div>
   );
