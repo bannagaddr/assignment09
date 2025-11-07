@@ -9,7 +9,7 @@ const Toy = () => {
   return (
     <div className="w-11/12 mx-auto my-20">
       <div className="text-center font-bold">
-        <h1 className="text-5xl mb-10">Popular Toys</h1>
+        <h1 className="text-3xl mb-10">Popular Toys</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
         {toyData.map((everyData) => (

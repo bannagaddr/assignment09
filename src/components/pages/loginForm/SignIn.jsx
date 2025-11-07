@@ -9,6 +9,7 @@ import {
 import { auth } from "../../../firebase/firebase.config";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthContext";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 // google provider
 const googleProvider = new GoogleAuthProvider();
@@ -16,7 +17,8 @@ const googleProvider = new GoogleAuthProvider();
 const SignIn = () => {
   const { setLoading } = use(AuthContext);
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState("");
+  // password show and hide hooks
+  const [showPassword, setShowPassword] = useState(true);
   console.log(user);
   const location = useLocation();
   console.log(location);
@@ -77,14 +79,22 @@ const SignIn = () => {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            className="inputField"
-            required
-          />
+          <div className="flex flex-col gap-2 relative">
+            <label className="text-sm font-semibold">Password</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Enter your password"
+              className="inputField"
+              required
+            />
+            <span
+              className="absolute top-10 right-5 text-xl text-[#9e000077] cursor-pointer"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </span>
+          </div>
           <div>
             <Link
               to={"/forgot-password"}
