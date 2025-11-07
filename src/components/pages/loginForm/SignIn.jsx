@@ -60,7 +60,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="my-12 bg-white rounded-md px-10 sm:px-110 mx-auto">
+    <div className="my-12 bg-white rounded-md px-5 sm:px-110 mx-auto">
       <form
         onSubmit={signinSubmit}
         className="space-y-3 border-2 p-5 rounded-md border-[#9e000017]"

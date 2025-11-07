@@ -37,3 +37,7 @@
   height: 100%;
   object-fit: cover;
 }
+
+a.active {
+  color: #f2511d;
+}

@@ -52,11 +52,11 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="px-1">
+          <ul className="px-1 flex items-center gap-2">
             <li>
-              <UseLink to={"/"}>
+              <NavLink to={"/"}>
                 <span className="font-medium">Home</span>
-              </UseLink>
+              </NavLink>
             </li>
           </ul>
         </div>

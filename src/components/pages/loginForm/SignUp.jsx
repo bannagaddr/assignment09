@@ -92,16 +92,19 @@ const SignUp = () => {
   };
 
   return (
-    <div className="my-12 bg-white rounded-md">
+    <div className="my-8 sm:my-12 bg-white rounded-md px-5 sm:px-110">
       <form
         onSubmit={signUpSubmit}
-        className="w-90 mx-auto space-y-3 border-2 p-5 rounded-md border-[#9e000017]"
+        className="w-full max-w-md mx-auto space-y-4 sm:space-y-6 border-2 p-5 sm:p-7 rounded-md border-[#9e000017]"
       >
-        <div className="text-xl text-center font-semibold">
-          <h1>SignUp</h1>
+        <div className="text-xl sm:text-2xl text-center font-semibold">
+          SignUp
         </div>
+
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Your Name</label>
+          <label className="text-sm sm:text-base font-semibold">
+            Your Name
+          </label>
           <input
             type="text"
             name="name"
@@ -110,18 +113,24 @@ const SignUp = () => {
             required
           />
         </div>
+
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Photo URL</label>
+          <label className="text-sm sm:text-base font-semibold">
+            Photo URL
+          </label>
           <input
             type="text"
             name="photoURL"
-            placeholder="Enter your email address"
+            placeholder="Enter your photo URL"
             className="inputField"
             required
           />
         </div>
+
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Email address</label>
+          <label className="text-sm sm:text-base font-semibold">
+            Email address
+          </label>
           <input
             type="email"
             name="email"
@@ -130,8 +139,9 @@ const SignUp = () => {
             required
           />
         </div>
+
         <div className="flex flex-col gap-2 relative">
-          <label className="text-sm font-semibold">Password</label>
+          <label className="text-sm sm:text-base font-semibold">Password</label>
           <input
             type={showPassword ? "text" : "password"}
             name="password"
@@ -140,27 +150,29 @@ const SignUp = () => {
             required
           />
           <span
-            className="absolute top-10 right-5 text-xl text-[#9e000077] cursor-pointer"
+            className="absolute top-10 right-3 sm:right-5 text-xl text-[#9e000077] cursor-pointer"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
           </span>
         </div>
-        <div>
-          <button className="btn bg-[#403F3F] text-white w-full">SignUp</button>
-        </div>
 
-        {/* signin with google */}
+        <button className="btn bg-[#403F3F] text-white w-full py-2 sm:py-3 rounded-md text-base sm:text-lg">
+          SignUp
+        </button>
+
         <div className="space-y-2">
           <div className="flex items-center mx-auto">
-            <div className="h-0.5 flex-1 bg-linear-to-r from-[#ffffff00] to-[#9e000017]"></div>
-            <h2 className="mx-2 font-medium text-[#a8a8a8]">or</h2>
-            <div className="h-0.5 flex-1 bg-linear-to-r from-[#9e000017] to-[#ffffff00]"></div>
+            <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent to-[#9e000017]"></div>
+            <h2 className="mx-2 font-medium text-[#a8a8a8] text-sm sm:text-base">
+              or
+            </h2>
+            <div className="h-0.5 flex-1 bg-gradient-to-r from-[#9e000017] to-transparent"></div>
           </div>
 
           <button
             onClick={handleGoogleSignIn}
-            className="btn bg-white text-black border-[#e5e5e5] w-full"
+            className="btn bg-white text-black border border-[#e5e5e5] w-full flex items-center justify-center gap-2 py-2 sm:py-3 rounded-md text-base sm:text-lg"
           >
             <svg
               aria-label="Google logo"
@@ -194,9 +206,9 @@ const SignUp = () => {
         </div>
 
         <div className="flex justify-center">
-          <p className="text-xs">
+          <p className="text-xs sm:text-sm text-center">
             <span className="text-[#706F6F] font-medium">
-              Already have an account ?
+              Already have an account?
             </span>{" "}
             <Link to="/signin" className="text-[#FF8C47] font-semibold">
               SignIn

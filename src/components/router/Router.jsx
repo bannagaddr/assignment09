@@ -9,6 +9,7 @@ import PrivateRouter from "./PrivateRouter";
 import Error from "../error/Error";
 import MyProfile from "../myprofile/MyProfile";
 import ForgetPassword from "../pages/loginform/ForgetPassword";
+import Toy from "../home/toy/Toy";
 
 export const router = createBrowserRouter([
   {

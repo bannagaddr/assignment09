@@ -1,16 +1,10 @@
-# React + Vite
+Project Name: Playgo
+Purpose: For sale children's toys
+Live URL: https://playgo-3e0bf.web.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Key Features:
+1st: First of all, if someone wants to see the details of a popular toy after entering the website, they must sign in. If they are not signed in, they will create an account, that is, they will go to the sign up option.
 
-Currently, two official plugins are available:
+2nd: If he leaves any input field blank while signing up, he will not be able to proceed to the next step i.e. sign up. Also, if he creates a new account with less than 6 digits and does not have capital letters or small letters, he will be shown an error toast through a toast alert.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3rd: When the user is able to sign in, they will be allowed to access the toy product detail page, along with the image from the user's email will show in the navbar on the website, and the user will see their name when hovering over the profile picture.
