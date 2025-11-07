@@ -6,8 +6,14 @@ import SignIn from "../pages/loginform/SignIn";
 import SignUp from "../pages/loginform/SignUp";
 import ToyDetails from "../home/toy/ToyDetails";
 import PrivateRouter from "./PrivateRouter";
+import Error from "../error/Error";
+import MyProfile from "../myprofile/MyProfile";
 
 export const router = createBrowserRouter([
+  {
+    path: "/*",
+    element: <Error></Error>,
+  },
   {
     path: "/",
     element: <Layout></Layout>,
@@ -31,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/profile",
+        element: <MyProfile></MyProfile>,
       },
     ],
   },

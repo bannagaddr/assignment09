@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import "../../index.css";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import logo from "/car-toy.png";
 import defaultUserIcon from "../../assets/default-user.png";
 import UseLink from "../navlink/UseLink";
@@ -73,13 +73,22 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end space-x-3">
-        <div>
+        <Link to={"/profile"} className="relative group">
           <img
             src={`${user ? user.photoURL : defaultUserIcon}`}
             alt=""
             className="w-10 ring ring-[#F2511D] rounded-full p-1"
           />
-        </div>
+
+          <span
+            className="absolute top-1/2 right-12 -translate-y-1/2 bg-gray-800
+            text-white text-xs px-2 py-1 rounded opacity-0
+            group-hover:opacity-100 transition-opacity duration-200
+            whitespace-nowrap"
+          >
+            {user ? user.displayName : "Unknown User"}
+          </span>
+        </Link>
 
         {user ? (
           <NavLink>
