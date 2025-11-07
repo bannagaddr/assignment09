@@ -18,11 +18,11 @@ Key Features:
 ---
 
 npn package that i use:
-tailwindcss/vite
-firebase
-react
-react-dom
-react-icons
-react-router
-react-toastify
-swiper
+tailwindcss/vite,
+firebase,
+react,
+react-dom,
+react-icons,
+react-router,
+react-toastify,
+swiper,
