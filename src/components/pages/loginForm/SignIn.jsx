@@ -16,6 +16,7 @@ const googleProvider = new GoogleAuthProvider();
 const SignIn = () => {
   const { setLoading } = use(AuthContext);
   const [user, setUser] = useState(null);
+  const [email, setEmail] = useState("");
   console.log(user);
   const location = useLocation();
   console.log(location);
@@ -85,7 +86,10 @@ const SignIn = () => {
             required
           />
           <div>
-            <Link to="/" className="text-[#FF8C47] font-semibold text-xs">
+            <Link
+              to={"/forgot-password"}
+              className="text-[#FF8C47] font-semibold text-xs"
+            >
               Forget password
             </Link>
           </div>

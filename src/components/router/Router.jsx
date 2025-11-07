@@ -8,6 +8,7 @@ import ToyDetails from "../home/toy/ToyDetails";
 import PrivateRouter from "./PrivateRouter";
 import Error from "../error/Error";
 import MyProfile from "../myprofile/MyProfile";
+import ForgetPassword from "../pages/loginform/ForgetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/signin",
         element: <SignIn></SignIn>,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgetPassword></ForgetPassword>,
       },
       {
         path: "/signup",
