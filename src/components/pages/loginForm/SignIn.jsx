@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import "../../../index.css";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
@@ -8,13 +8,18 @@ import {
 } from "firebase/auth";
 import { auth } from "../../../firebase/firebase.config";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../context/AuthContext";
 
 // google provider
 const googleProvider = new GoogleAuthProvider();
 
 const SignIn = () => {
+  const { setLoading } = use(AuthContext);
   const [user, setUser] = useState(null);
   console.log(user);
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
 
   const signinSubmit = (e) => {
     e.preventDefault();
@@ -22,11 +27,13 @@ const SignIn = () => {
     const password = e.target.password?.value;
     console.log("Sign in", { email, password });
 
+    setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         toast.success("SignIn Successful!");
         setUser(result.user);
         console.log(result);
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -41,6 +48,7 @@ const SignIn = () => {
         toast.success("SignIn Successful!");
         setUser(result.user);
         console.log(result);
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         toast.error(error.message);

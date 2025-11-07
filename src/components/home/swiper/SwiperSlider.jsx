@@ -10,7 +10,7 @@ import "../../../index.css";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-const toyPromise = fetch("./toy.json").then((result) => result.json());
+const toyPromise = fetch("/toy.json").then((result) => result.json());
 
 const SwiperSlider = () => {
   const toyData = use(toyPromise);

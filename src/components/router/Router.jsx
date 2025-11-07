@@ -5,6 +5,7 @@ import Home from "../home/Home";
 import SignIn from "../pages/loginform/SignIn";
 import SignUp from "../pages/loginform/SignUp";
 import ToyDetails from "../home/toy/ToyDetails";
+import PrivateRouter from "./PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/toy-details/:id",
-        element: <ToyDetails></ToyDetails>,
+        element: (
+          <PrivateRouter>
+            <ToyDetails></ToyDetails>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/signin",

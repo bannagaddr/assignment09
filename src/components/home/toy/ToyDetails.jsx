@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
+import { toast } from "react-toastify";
 
 const ToyDetails = () => {
   const { id } = useParams();
@@ -15,8 +16,22 @@ const ToyDetails = () => {
   }, [id]);
 
   if (!toy) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex justify-center items-center h-screen bg-white">
+        <span className="loading loading-dots loading-xl text-orange-500"></span>
+      </div>
+    );
   }
+
+  const handleTryNow = (e) => {
+    e.preventDefault();
+    const name = e.target.name?.value;
+    const email = e.target.email?.value;
+
+    if (email && name) {
+      toast.success("Thanks for trying");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-linear-to-b from-[#fff4eb] to-white py-16 px-5 flex justify-center">
@@ -72,12 +87,36 @@ const ToyDetails = () => {
             {toy.subCategory}
           </p>
 
-          {/* Button */}
-          <div className="pt-4">
-            <button className="w-full py-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-semibold shadow hover:scale-105 duration-300">
-              Buy Now
+          {/* try now form */}
+          <form onSubmit={handleTryNow} className="space-y-4">
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-semibold">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                className="inputField"
+                required
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-semibold">Email address</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email address"
+                className="inputField"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 rounded-xl bg-linear-to-r from-orange-500 to-red-500 text-white text-lg font-semibold shadow hover:scale-101 duration-300 cursor-pointer"
+            >
+              Try Now
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

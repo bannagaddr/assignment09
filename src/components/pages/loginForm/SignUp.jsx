@@ -4,7 +4,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import React, { use, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { auth } from "../../../firebase/firebase.config";
 import { toast } from "react-toastify";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -15,8 +15,10 @@ const googleProvider = new GoogleAuthProvider();
 
 const SignUp = () => {
   // use context
-  const { user, setUser } = use(AuthContext);
+  const { user, setUser, setLoading, updateUser } = use(AuthContext);
   console.log(user);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // password show and hide hooks
   const [showPassword, setShowPassword] = useState(true);
@@ -30,21 +32,28 @@ const SignUp = () => {
     // console.log("Sign in", { email, password });
 
     const regEx10 = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-    if (!regEx10.test(password)) {
+    if (!regEx10.test(password) && password.length < 6) {
       toast.error(
         "Password must be at least 6 characters long and include both uppercase and lowercase letters."
       );
       return;
     }
-
+    setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         toast.success("SignUp successful!");
-
         // get user input data
         const rightUser = result.user;
         console.log(rightUser);
-        setUser(rightUser);
+        updateUser({ displayName: name, photoURL: photoURL })
+          .then(() => {
+            setUser({ ...rightUser, displayName: name, photoURL: photoURL });
+            navigate(`${location.state ? location.state : "/"}`);
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(rightUser);
+          });
       })
       .catch((error) => {
         if (error.code == "auth/email-already-in-use") {
@@ -57,10 +66,24 @@ const SignUp = () => {
 
   // google signin function
   const handleGoogleSignIn = () => {
+    setLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        toast.success("SignIn Successful!");
-        console.log(result);
+        const loggedUser = result.user;
+        const name = loggedUser.displayName;
+        const photoURL = loggedUser.photoURL;
+
+        updateUser({ displayName: name, photoURL: photoURL })
+          .then(() => {
+            setUser({ ...loggedUser, displayName: name, photoURL: photoURL });
+
+            toast.success("Google SignIn Successful!");
+            navigate(`${location.state ? location.state : "/"}`);
+          })
+          .catch((error) => {
+            console.log("Profile update error:", error);
+            setUser(loggedUser);
+          });
       })
       .catch((error) => {
         toast.error(error.message);

@@ -75,7 +75,7 @@ const Navbar = () => {
       <div className="navbar-end space-x-3">
         <div>
           <img
-            src={defaultUserIcon}
+            src={`${user ? user.photoURL : defaultUserIcon}`}
             alt=""
             className="w-10 ring ring-[#F2511D] rounded-full p-1"
           />
